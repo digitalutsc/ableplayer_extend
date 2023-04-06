@@ -1,0 +1,14 @@
+{
+    "name": "ableplayer_extend",
+    "type": "drupal-module",
+    "description": "Ableplayer Extend",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/ableplayer_extend",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/ableplayer_extend",
+        "source": "http://cgit.drupalcode.org/ableplayer_extend"
+    }
+}
+

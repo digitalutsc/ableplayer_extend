@@ -1,0 +1,29 @@
+/* add space between player and transcript */
+.able-transcript div {
+  margin: 2em 0;
+}
+
+/* style the cues */
+.able-transcript-caption {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
+  display: block;
+  margin: 0px;
+  margin-bottom: -1px;
+}
+
+.able-transcript-heading {
+  display: none;
+}
+
+/* display the transcript area below the player */
+.able-transcript-area {
+  position: relative !important;
+  left: 0px !important;
+}
+
+/* adjust the timer bar height; it was cutting it out */
+.able-status-bar {
+  height: 2em !important;
+}
