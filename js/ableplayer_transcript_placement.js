@@ -17,7 +17,6 @@
 
           // check if transcript toggle exists
           if (jQuery("div.able-button-handler-transcript").length) {
-
             // display transcript
             if (display_ableplayer_transcript == "1") {
               var toggle = jQuery("div.able-button-handler-transcript");

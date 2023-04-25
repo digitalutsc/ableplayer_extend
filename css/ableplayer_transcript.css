@@ -21,6 +21,7 @@
 .able-transcript-area {
   position: relative !important;
   left: 0px !important;
+  top: 4px !important;
 }
 
 /* adjust the timer bar height; it was cutting it out */

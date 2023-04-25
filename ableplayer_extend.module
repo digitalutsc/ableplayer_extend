@@ -34,15 +34,28 @@ function ableplayer_extend_field_formatter_third_party_settings_form($plugin, $f
   // Add a 'my_setting' checkbox to the settings form for 'foo_formatter' field
   // formatters.
   if ($plugin->getPluginId() == 'ableplayer_audio') {
-    $element['display_ableplayer_transcript'] = [
+    $element['display_ableplayer_transcript_audio'] = [
       '#type' => 'checkbox',
       '#title' => t('Display Transcript Container by Default'),
-      '#default_value' => $plugin->getThirdPartySetting('ableplayer_extend', 'display_ableplayer_transcript'),
+      '#default_value' => $plugin->getThirdPartySetting('ableplayer_extend', 'display_ableplayer_transcript_audio'),
     ];
-    $element['show_timestamp'] = [
+    $element['show_timestamp_audio'] = [
       '#type' => 'checkbox',
       '#title' => t('Display Cue Timestamp'),
-      '#default_value' => $plugin->getThirdPartySetting('ableplayer_extend', 'show_timestamp'),
+      '#default_value' => $plugin->getThirdPartySetting('ableplayer_extend', 'show_timestamp_audio'),
+    ];
+  }
+
+  if ($plugin->getPluginId() == 'ableplayer_video') {
+    $element['display_ableplayer_transcript_video'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Display Transcript Container by Default'),
+      '#default_value' => $plugin->getThirdPartySetting('ableplayer_extend', 'display_ableplayer_transcript_video'),
+    ];
+    $element['show_timestamp_video'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Display Cue Timestamp'),
+      '#default_value' => $plugin->getThirdPartySetting('ableplayer_extend', 'show_timestamp_video'),
     ];
   }
   return $element;
@@ -67,11 +80,30 @@ function ableplayer_extend_preprocess_field(&$variables) {
     $field_display = $entity_display->getComponent($field_name);
 
     // Make the setting available in the field template.
-    $display_ableplayer_transcript = $field_display['third_party_settings']['ableplayer_extend']['display_ableplayer_transcript'];
-    $show_timestamp = $field_display['third_party_settings']['ableplayer_extend']['show_timestamp'];
+    $display_ableplayer_transcript_audio = $field_display['third_party_settings']['ableplayer_extend']['display_ableplayer_transcript_audio'];
+    $show_timestamp_audio = $field_display['third_party_settings']['ableplayer_extend']['show_timestamp_audio'];
 
-    $variables['#attached']['drupalSettings']['display_ableplayer_transcript'] = $display_ableplayer_transcript;
-    $variables['#attached']['drupalSettings']['show_timestamp'] = $show_timestamp;
+    $variables['#attached']['drupalSettings']['display_ableplayer_transcript'] = $display_ableplayer_transcript_audio;
+    $variables['#attached']['drupalSettings']['show_timestamp'] = $show_timestamp_audio;
+    $variables['#attached']['library'][] = 'ableplayer_extend/ableplayer_extend.transcript_position';
+
+  }
+  if ($variables['element']['#formatter'] == 'ableplayer_video') {
+
+    $entity = $variables['element']['#object'];
+    $view_mode = $variables['element']['#view_mode'];
+    $field_name = $variables['element']['#field_name'];
+
+    // Get the field formatter settings...
+    $entity_display = EntityViewDisplay::collectRenderDisplay($entity, $view_mode);
+    $field_display = $entity_display->getComponent($field_name);
+
+    // Make the setting available in the field template.
+    $display_ableplayer_transcript_video = $field_display['third_party_settings']['ableplayer_extend']['display_ableplayer_transcript_video'];
+    $show_timestamp_video = $field_display['third_party_settings']['ableplayer_extend']['show_timestamp_video'];
+
+    $variables['#attached']['drupalSettings']['display_ableplayer_transcript'] = $display_ableplayer_transcript_video;
+    $variables['#attached']['drupalSettings']['show_timestamp'] = $show_timestamp_video;
     $variables['#attached']['library'][] = 'ableplayer_extend/ableplayer_extend.transcript_position';
 
   }
