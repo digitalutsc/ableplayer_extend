@@ -1,16 +1,8 @@
-/* add space between player and transcript */
-.able-transcript div {
-  margin: 2em 0;
-}
-
 /* style the cues */
 .able-transcript-caption {
-  border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  border: 1px solid #ddd;
   display: block;
-  margin: 0px;
-  margin-bottom: -1px;
+  margin-bottom: 10px;
 }
 
 .able-transcript-heading {
@@ -20,6 +12,7 @@
 /* display the transcript area below the player */
 .able-transcript-area {
   position: relative !important;
+  margin: 1em 0;
   left: 0px !important;
   top: 4px !important;
 }
@@ -28,3 +21,4 @@
 .able-status-bar {
   height: 2em !important;
 }
+
