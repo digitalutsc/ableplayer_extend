@@ -15,6 +15,7 @@
   margin: 1em 0;
   left: 0px !important;
   top: 4px !important;
+  width: 100% !important;
 }
 
 /* adjust the timer bar height; it was cutting it out */
