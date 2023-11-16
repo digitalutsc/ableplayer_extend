@@ -1,14 +1,14 @@
 {
-    "name": "ableplayer_extend",
+    "name": "islandora_lite/ableplayer_extend",
     "type": "drupal-module",
     "description": "Ableplayer Extend",
     "keywords": [
     ],
-    "homepage": "https://www.drupal.org/project/ableplayer_extend",
+    "homepage": "https://github.com/digitalutsc/ableplayer_extend",
     "minimum-stability": "dev",
     "support": {
-        "issues": "https://www.drupal.org/project/issues/ableplayer_extend",
-        "source": "http://cgit.drupalcode.org/ableplayer_extend"
+        "issues": "https://github.com/digitalutsc/ableplayer_extend/issues",
+        "source": "https://github.com/digitalutsc/ableplayer_extend"
     }
 }
 
