@@ -4,4 +4,7 @@ ableplayer_extend.transcript_position:
       css/ableplayer_transcript.css: {}
   js:
     js/ableplayer_transcript_placement.js: {}
-
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once

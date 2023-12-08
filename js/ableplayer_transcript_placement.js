@@ -1,11 +1,10 @@
-(function ($) {
+(function (Drupal, $, once) {
 
   Drupal.behaviors.exampleBehavior = {
 
     attach: function (context, settings) {
-
       // load the observer only once!
-      $('.title').once('load_mutation_observer').each(function () {
+      $(once('load_mutation_observer', '.title', context)).each(function () {
         var display_ableplayer_transcript = String(settings.display_ableplayer_transcript);
         var show_timestamp = String(settings.show_timestamp);
 
@@ -14,7 +13,6 @@
           if (display_ableplayer_transcript != "1" && show_timestamp != "1") {
             observer.disconnect();
           }
-
           // check if transcript toggle exists
           if (jQuery("div.able-button-handler-transcript").length) {
             // display transcript
@@ -52,4 +50,4 @@
     }
   };
 
-})(jQuery);
+})(Drupal, jQuery, once);
