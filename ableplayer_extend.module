@@ -26,7 +26,8 @@ function ableplayer_extend_help($route_name, RouteMatchInterface $route_match) {
 
 /**
  * Implements hook_field_formatter_third_party_settings_form().
- * Provides additional two config options for Ableplayer
+ *
+ * Provides additional two config options for Ableplayer.
  */
 function ableplayer_extend_field_formatter_third_party_settings_form($plugin, $field_definition, $view_mode, $form, $form_state) {
 
@@ -63,7 +64,8 @@ function ableplayer_extend_field_formatter_third_party_settings_form($plugin, $f
 
 /**
  * Implements hook_preprocess_field().
- * Setups the javascript to enable Ableplayer related functions
+ *
+ * Setups the javascript to enable Ableplayer related functions.
  */
 function ableplayer_extend_preprocess_field(&$variables) {
 
@@ -83,7 +85,7 @@ function ableplayer_extend_preprocess_field(&$variables) {
     if (isset($field_display['third_party_settings']['ableplayer_extend'])) {
       $display_ableplayer_transcript_audio = $field_display['third_party_settings']['ableplayer_extend']['display_ableplayer_transcript_audio'];
       $show_timestamp_audio = $field_display['third_party_settings']['ableplayer_extend']['show_timestamp_audio'];
-  
+
       $variables['#attached']['drupalSettings']['display_ableplayer_transcript'] = $display_ableplayer_transcript_audio;
       $variables['#attached']['drupalSettings']['show_timestamp'] = $show_timestamp_audio;
     }
@@ -102,10 +104,10 @@ function ableplayer_extend_preprocess_field(&$variables) {
 
     // Make the setting available in the field template.
     if (isset($field_display['third_party_settings']['ableplayer_extend'])) {
-        $display_ableplayer_transcript_video = $field_display['third_party_settings']['ableplayer_extend']['display_ableplayer_transcript_video'];
-        $show_timestamp_video = $field_display['third_party_settings']['ableplayer_extend']['show_timestamp_video'];
-        $variables['#attached']['drupalSettings']['display_ableplayer_transcript'] = $display_ableplayer_transcript_video;
-        $variables['#attached']['drupalSettings']['show_timestamp'] = $show_timestamp_video;
+      $display_ableplayer_transcript_video = $field_display['third_party_settings']['ableplayer_extend']['display_ableplayer_transcript_video'];
+      $show_timestamp_video = $field_display['third_party_settings']['ableplayer_extend']['show_timestamp_video'];
+      $variables['#attached']['drupalSettings']['display_ableplayer_transcript'] = $display_ableplayer_transcript_video;
+      $variables['#attached']['drupalSettings']['show_timestamp'] = $show_timestamp_video;
     }
     $variables['#attached']['library'][] = 'ableplayer_extend/ableplayer_extend.transcript_position';
   }
