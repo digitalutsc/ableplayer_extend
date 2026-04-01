@@ -42,8 +42,8 @@
 
         // Start observing
         observer.observe(document.body, {
-          childList: TRUE,
-          subtree: TRUE
+          childList: true,
+          subtree: true
         });
       })
 
