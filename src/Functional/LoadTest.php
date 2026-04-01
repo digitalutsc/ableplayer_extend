@@ -4,13 +4,20 @@ namespace Drupal\Tests\ableplayer_extend\Functional;
 
 use Drupal\Core\Url;
 use Drupal\Tests\BrowserTestBase;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /**
  * Simple test to ensure that main page loads with module enabled.
  *
  * @group ableplayer_extend
  */
+#[RunTestsInSeparateProcesses]
 class LoadTest extends BrowserTestBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
 
   /**
    * Modules to enable.
@@ -40,7 +47,7 @@ class LoadTest extends BrowserTestBase {
    */
   public function testLoad() {
     $this->drupalGet(Url::fromRoute('<front>'));
-    $this->assertSession()->responseContains('200');
+    $this->assertSession()->statusCodeEquals(200);
   }
 
 }
