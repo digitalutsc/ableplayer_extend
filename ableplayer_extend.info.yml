@@ -3,3 +3,5 @@ type: module
 description: 'Ableplayer Extend'
 core_version_requirement: ^9.3 || ^10 || ^11
 package: 'Media'
+dependencies:
+  - ableplayer
