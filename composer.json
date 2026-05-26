@@ -10,6 +10,8 @@
         "issues": "https://github.com/digitalutsc/ableplayer_extend/issues",
         "source": "https://github.com/digitalutsc/ableplayer_extend"
     },
-    "require": {}
+    "require": {
+        "drupal/ableplayer": "^3.4"
+    },
 }
 
