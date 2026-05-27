@@ -12,6 +12,6 @@
     },
     "require": {
         "drupal/ableplayer": "^3.4"
-    },
+    }
 }
 
