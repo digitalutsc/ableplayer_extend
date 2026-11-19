@@ -25,6 +25,22 @@ function ableplayer_extend_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
+ * Implements hook_library_info_alter().
+ *
+ * Appends js/ableplayer_speech_init.js to Able Player's own library, so the
+ * fix loads wherever Able Player does. See that file for why it is needed.
+ */
+function ableplayer_extend_library_info_alter(&$libraries, $extension) {
+  if ($extension !== 'ableplayer' || !isset($libraries['ableplayer']['js'])) {
+    return;
+  }
+  // A leading slash makes the path relative to the Drupal root, not to the
+  // ableplayer module.
+  $path = '/' . \Drupal::service('extension.list.module')->getPath('ableplayer_extend') . '/js/ableplayer_speech_init.js';
+  $libraries['ableplayer']['js'][$path] = [];
+}
+
+/**
  * Implements hook_field_formatter_third_party_settings_form().
  *
  * Provides additional two config options for Ableplayer.
